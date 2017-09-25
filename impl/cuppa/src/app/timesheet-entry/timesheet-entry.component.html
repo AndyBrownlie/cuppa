@@ -1,0 +1,22 @@
+<form>
+  <md-form-field>
+    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+    <md-datepicker #picker></md-datepicker>
+  </md-form-field>
+  <br/>
+  <md-form-field>
+    <input type="text" placeholder="Contract" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+ </md-form-field>
+  <md-autocomplete #auto="mdAutocomplete">
+  <md-option *ngFor="let option of options" [value]="option">
+     {{ option }}
+  </md-option>
+</md-autocomplete>
+<br/>
+<md-form-field>
+  <input mdInput type="number" placeholder="Worked (% of day)" step="25" min="0" max="100"><span mdSuffix>%</span>
+</md-form-field>
+<br/>
+<button md-raised-button color="primary">Submit</button>
+</form>

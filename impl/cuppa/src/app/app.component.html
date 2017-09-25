@@ -29,15 +29,7 @@
     </md-sidenav>
     <!-- ng content or router would go here -->
     <div layout layout-fill class="bgc-white" tdMediaToggle="gt-xs" [mediaClasses]="['pad-right-xxl', 'pad-left-lg', 'pad-top']">
-      <md-nav-list flex>
-        <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
-          <a md-list-item (click)="openDialog()">
-            <img md-list-avatar src="http://lorempixel.com/40/40/people/{{i}}" />
-            <h4 md-line class="cursor-pointer"> Firstname Lastname </h4>
-            <span flex="none" class="md-caption tc-grey-600">555-444-1234</span>
-          </a>
-        </ng-template>
-      </md-nav-list>
+     <timesheet-entry></timesheet-entry>
     </div>
   </md-sidenav-container>
   <a md-fab color="accent" class="mat-fab-bottom-right fixed fab-pad">
