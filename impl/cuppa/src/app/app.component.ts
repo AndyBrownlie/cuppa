@@ -1,6 +1,5 @@
 import { Component, AfterViewInit, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MdIconRegistry } from '@angular/material';
 
 declare const gapi: any;
 

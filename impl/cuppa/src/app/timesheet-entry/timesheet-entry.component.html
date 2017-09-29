@@ -1,15 +1,18 @@
 <form>
-  <md-form-field>
-    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-    <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-    <md-datepicker #picker></md-datepicker>
-  </md-form-field>
+    <md-slide-toggle
+    [color]="primary"
+[checked]="workingDay"
+    (change)="onWorkingDayStatusChange()"
+    >
+  Working today 
+</md-slide-toggle>
+<p>val:{{disableControls}}</p>
   <br/>
   <md-form-field>
-    <input type="text" placeholder="Select a contract" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
+    <input type="text" disabled="true" placeholder="Select a contract" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
  </md-form-field>
   <md-autocomplete #auto="mdAutocomplete">
-  <md-option *ngFor="let option of options" [value]="option">
+  <md-option *ngFor="let option of options" [value]="option" disabled="{{disableControls}}">
      {{ option }}
   </md-option>
 </md-autocomplete>

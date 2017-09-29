@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MdIconModule } from '@angular/material';
 
 import { CoreRoutingModule } from './core-routing.module';
-import { HeaderComponent } from './header/header.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    MdIconModule
   ],
-  declarations: [HeaderComponent]
+  exports: [
+    ToolbarComponent
+  ],
+  declarations: [ToolbarComponent]
 })
 export class CoreModule { }

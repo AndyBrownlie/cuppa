@@ -16,6 +16,7 @@ import {MdToolbarModule} from '@angular/material';
 import {MdTooltipModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
 import {MdAutocompleteModule} from '@angular/material';
+import {MdSlideToggleModule} from '@angular/material';
 import {MdDatepickerModule} from '@angular/material';
 import {MdNativeDateModule} from '@angular/material';
 import {CovalentMediaModule} from '@covalent/core';
@@ -24,6 +25,7 @@ import { CovalentLayoutModule, CovalentStepsModule /*, any other modules */ } fr
 
 import { AppComponent } from './app.component';
 import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -49,9 +51,11 @@ import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.compo
     MdDatepickerModule,
     MdNativeDateModule,
     MdAutocompleteModule,
+    MdSlideToggleModule,
     CovalentMediaModule,
     CovalentLayoutModule,
-    CovalentStepsModule
+    CovalentStepsModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,14 +8,18 @@ import { FormControl }                 from '@angular/forms';
 })
 export class TimesheetEntryComponent implements OnInit {
 
-  myControl: FormControl = new FormControl();
-  options = [
-    'Neueda | DAERA',
-    'Neueda | LPS'
-   ];
+  private myControl: FormControl = new FormControl();
+  private workingDay: boolean = true;
+  private disableControls: boolean;
+  private options = ['Neueda | DAERA','Neueda | LPS'];
+  
 
   constructor() { }
 
+  onWorkingDayStatusChange() {
+    this.workingDay = !this.workingDay;
+    this.disableControls = !this.workingDay;
+  }
   ngOnInit() {
     
   }
