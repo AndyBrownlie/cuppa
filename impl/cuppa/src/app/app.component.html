@@ -1,2 +1,2 @@
 <div id="{{googleLoginButtonId}}" *ngIf="!loggedIn"></div>
-<timesheet-entry></timesheet-entry>
+<timesheet-entry *ngIf="loggedIn"></timesheet-entry>

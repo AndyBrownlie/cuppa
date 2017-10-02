@@ -11,7 +11,7 @@ declare const gapi: any;
 
 export class AppComponent implements AfterViewInit {
 
-    public title: string = 'app';
+    public title: string = 'cuppa';
     private clientId: string = "659602254635-j2lfo490qpi9r94pd1tfjnjas9jfs8t6.apps.googleusercontent.com";
     public googleLoginButtonId: string  = "google-login-button";
     private userAuthToken: string = null;

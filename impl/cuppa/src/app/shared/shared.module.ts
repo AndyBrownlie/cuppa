@@ -8,8 +8,7 @@ import { ProjectService }     from './project.service';
     CommonModule
   ],
   declarations: [
-    Project,
-    ProjectService
+    
   ]
 })
 export class SharedModule { }
