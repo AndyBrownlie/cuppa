@@ -1,4 +1,4 @@
-export class TimesheetEntryDataModel {
+export class TimesheetEntry {
 
   private date: Date;
   private contract: string;

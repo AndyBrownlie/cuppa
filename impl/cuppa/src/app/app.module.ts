@@ -20,17 +20,18 @@ import {MdSlideToggleModule} from '@angular/material';
 import {MdDatepickerModule} from '@angular/material';
 import {MdNativeDateModule} from '@angular/material';
 import {CovalentMediaModule} from '@covalent/core';
-
 import { CovalentLayoutModule, CovalentStepsModule /*, any other modules */ } from '@covalent/core';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.component';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimesheetEntryComponent
+    TimesheetEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +56,8 @@ import { CoreModule } from './core/core.module';
     CovalentMediaModule,
     CovalentLayoutModule,
     CovalentStepsModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
