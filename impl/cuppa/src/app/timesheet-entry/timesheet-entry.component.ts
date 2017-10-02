@@ -1,5 +1,5 @@
-import { Component, OnInit }                                from '@angular/core';
-import { FormControl }                 from '@angular/forms';
+import { Component, OnInit }                                    from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/forms';
 
 @Component({
   selector: 'timesheet-entry',
@@ -8,13 +8,27 @@ import { FormControl }                 from '@angular/forms';
 })
 export class TimesheetEntryComponent implements OnInit {
 
-  private myControl: FormControl = new FormControl();
-  private workingDay: boolean = true;
-  private disableControls: boolean;
-  private options = ['Neueda | DAERA','Neueda | LPS'];
+    private timesheetEntryGroup = new FormGroup({    
+      contractControl: new FormControl(),
+      workAmountControl: new FormControl()
+    });
+
+    private workingDay: boolean = true;
+    private disableControls: boolean;
+    private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
   
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { 
+    this.createForm();
+  }
+
+  private createForm() {
+    this.timesheetEntryGroup = this.formBuilder.group({
+      contractControl:  ['', Validators.required ],
+      workAmountControl:  ['', Validators.required ]
+    });
+  }
+
 
   onWorkingDayStatusChange() {
     this.workingDay = !this.workingDay;

@@ -8,20 +8,38 @@
 </md-slide-toggle>
 <p>val:{{disableControls}}</p>
   <br/>
-  <md-form-field>
-    <input type="text" disabled="true" placeholder="Select a contract" mdInput [formControl]="myControl" [mdAutocomplete]="auto">
- </md-form-field>
-  <md-autocomplete #auto="mdAutocomplete">
-  <md-option *ngFor="let option of options" [value]="option" disabled="{{disableControls}}">
-     {{ option }}
-  </md-option>
-</md-autocomplete>
-<br/>
-<md-form-field>
-  <input mdInput type="number" placeholder="Enter work amount" step="25" min="0" max="100"><span mdSuffix>%</span>
-  <md-hint align="start">As a % of the day</md-hint>
-</md-form-field>
+  <form [formGroup]="timesheetEntryGroup" novalidate>
+    <div>
+      <md-form-field>
+        <input type="text" 
+                disabled="true" 
+                placeholder="Select a contract" 
+                mdInput 
+                formControlName="contractControl" 
+                [mdAutocomplete]="auto">
+      </md-form-field>
+        <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption" disabled="{{disableControls}}">
+          {{ contractOption }}
+        </md-option>
+      </md-autocomplete>
+      <br/>
+      <md-form-field>
+        <input mdInput type="number" 
+                disabled = true
+                placeholder="Enter work amount" 
+                step="25" 
+                min="0" 
+                max="100"
+                formControlName="workAmountControl">
+                <span mdSuffix>%</span>
+        <md-hint align="start">As a % of the day</md-hint>
+      </md-form-field>
+    </div>
+  </form>
 <br/>
 <br/>
 <button md-raised-button color="primary">Submit</button>
 </form>
+<p>Form value: {{ timesheetEntryGroup.value | json }}</p>
+<p>Form status: {{ timesheetEntryGroup.status | json }}</p>
