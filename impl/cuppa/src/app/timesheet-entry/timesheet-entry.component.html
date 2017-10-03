@@ -1,31 +1,22 @@
-<form>
-  <br/>
-  <form [formGroup]="timesheetEntryGroup" novalidate>
-
-          
-        <md-select placeholder="Select a project" formControlName="contractControl">
-            <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
-                {{ contractOption }}
-              </md-option>
-        </md-select>
-      
-    
-      <br/>
-      <md-form-field>
-        <input mdInput type="number" 
-                placeholder="Enter work amount" 
-                step="25" 
-                min="0" 
-                max="100"
-                formControlName="workAmountControl">
-                <span mdSuffix>%</span>
-        <md-hint align="start">As a % of the day</md-hint>
-      </md-form-field>
-
-  </form>
-<br/>
-<br/>
-<button md-raised-button color="primary">Submit</button>
+<form [formGroup]="timesheetEntryGroup" novalidate>
+  <md-select placeholder="Select a project" formControlName="contractControl">
+      <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
+          {{ contractOption }}
+        </md-option>
+  </md-select>
+  <md-form-field>
+    <input mdInput type="number" 
+            placeholder="Enter work amount" 
+            step="25" 
+            min="0" 
+            max="100"
+            formControlName="workAmountControl">
+            <span mdSuffix>%</span>
+    <md-hint align="start">As a % of the day</md-hint>
+  </md-form-field>
+  <button md-raised-button color="primary" disabled="{{timesheetEntryGroup.status!='VALID'}}">Submit</button>
 </form>
+<br/>
+<br/>
 <p>Form value: {{ timesheetEntryGroup.value | json }}</p>
 <p>Form status: {{ timesheetEntryGroup.status | json }}</p>

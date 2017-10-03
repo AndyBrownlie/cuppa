@@ -10,7 +10,7 @@ export class TimesheetEntryComponent implements OnInit {
 
   private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
   private timesheetEntryGroup: FormGroup;
-
+  
   constructor(private formBuilder: FormBuilder) { 
     this.createForm();
   }
