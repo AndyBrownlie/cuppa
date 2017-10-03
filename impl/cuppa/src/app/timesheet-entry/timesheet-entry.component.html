@@ -16,13 +16,13 @@
                 placeholder="Select a contract" 
                 mdInput 
                 formControlName="contractControl" 
-                [mdAutocomplete]="auto">
+                >
       </md-form-field>
-        <md-autocomplete #auto="mdAutocomplete">
+        
         <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption" disabled="{{disableControls}}">
           {{ contractOption }}
         </md-option>
-      </md-autocomplete>
+      
       <br/>
       <md-form-field>
         <input mdInput type="number" 

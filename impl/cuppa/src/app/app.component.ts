@@ -26,7 +26,7 @@ export class AppComponent implements AfterViewInit {
     // rendering of a view.
 
     ngAfterViewInit() {
-
+        
         // Converts the Google login button stub to an actual button.
         gapi.signin2.render(this.googleLoginButtonId, {
             "onSuccess": this.onGoogleLoginSuccess,
