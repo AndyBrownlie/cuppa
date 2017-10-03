@@ -5,7 +5,7 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
-    files: ['https://apis.google.com/js/platform.js?onload=ngAfterViewInit'],
+    files: ['https://apis.google.com/js/platform.js?onload=ngOnInit'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),

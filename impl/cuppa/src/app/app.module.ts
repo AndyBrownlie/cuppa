@@ -12,6 +12,7 @@ import {MdButtonModule} from '@angular/material';
 import {MdListModule} from '@angular/material';
 import {MdIconModule} from '@angular/material';
 import {MdSidenavModule} from '@angular/material';
+import {MdSelectModule} from '@angular/material';
 import {MdToolbarModule} from '@angular/material';
 import {MdTooltipModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
@@ -46,6 +47,7 @@ import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.compo
     MdListModule,
     MdIconModule,
     MdSidenavModule,
+    MdSelectModule,
     MdToolbarModule,
     MdTooltipModule,
     MdDialogModule,

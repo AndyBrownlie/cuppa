@@ -8,15 +8,8 @@ import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/f
 })
 export class TimesheetEntryComponent implements OnInit {
 
-    private timesheetEntryGroup = new FormGroup({    
-      contractControl: new FormControl(),
-      workAmountControl: new FormControl()
-    });
-
-    private workingDay: boolean = true;
-    private disableControls: boolean;
-    private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
-  
+  private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
+  private timesheetEntryGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { 
     this.createForm();
@@ -29,11 +22,6 @@ export class TimesheetEntryComponent implements OnInit {
     });
   }
 
-
-  onWorkingDayStatusChange() {
-    this.workingDay = !this.workingDay;
-    this.disableControls = !this.workingDay;
-  }
   ngOnInit() {
     
   }

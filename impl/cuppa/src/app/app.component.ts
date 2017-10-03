@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, NgZone } from '@angular/core';
+import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 declare const gapi: any;
@@ -9,7 +9,7 @@ declare const gapi: any;
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
     public title: string = 'cuppa';
     private clientId: string = "659602254635-j2lfo490qpi9r94pd1tfjnjas9jfs8t6.apps.googleusercontent.com";
@@ -24,6 +24,10 @@ export class AppComponent implements AfterViewInit {
 
     // Angular hook that allows for interaction with elements inserted by the
     // rendering of a view.
+
+    ngOnInit() {
+
+    }
 
     ngAfterViewInit() {
         
