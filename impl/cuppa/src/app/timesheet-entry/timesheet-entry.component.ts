@@ -26,4 +26,8 @@ export class TimesheetEntryComponent implements OnInit {
     
   }
 
+  private onSubmit() {
+    
+  }
+
 }

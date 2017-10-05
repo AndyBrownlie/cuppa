@@ -1,7 +1,7 @@
-export class TimesheetEntry {
+export interface TimesheetEntry {
 
-  private date: Date;
-  private contract: string;
-  private workAmount: number;
+  date: Date;
+  contract: string;
+  workAmount: number;
   
 }
