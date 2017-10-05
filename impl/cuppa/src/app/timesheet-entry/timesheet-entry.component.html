@@ -1,5 +1,5 @@
 <form [formGroup]="timesheetEntryGroup" novalidate>
-  <md-select placeholder="Select a project" formControlName="contractControl">
+  <md-select placeholder="Select a project" formControlName="contract">
       <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
           {{ contractOption }}
         </md-option>
@@ -10,7 +10,7 @@
             step="25" 
             min="0" 
             max="100"
-            formControlName="workAmountControl">
+            formControlName="workAmount">
             <span mdSuffix>%</span>
     <md-hint align="start">As a % of the day</md-hint>
   </md-form-field>
