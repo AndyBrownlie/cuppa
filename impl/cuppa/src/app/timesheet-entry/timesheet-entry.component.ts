@@ -15,7 +15,7 @@ export class TimesheetEntryComponent implements OnInit {
      timesheetEntryGroup: FormGroup;
     private timesheetEntry: TimesheetEntry;
   
-    constructor(private formBuilder: FormBuilder, private timesheetService: ITimesheetEntryService) { 
+    constructor(private formBuilder: FormBuilder){//, private timesheetService: ITimesheetEntryService) { 
         this.createForm();
     }
 
@@ -31,8 +31,8 @@ export class TimesheetEntryComponent implements OnInit {
     }
 
     private onSubmit() {
-        this.timesheetEntry = this.timesheetEntryGroup.value;
-        this.timesheetService.post(this.timesheetEntry);      
+       /*  this.timesheetEntry = this.timesheetEntryGroup.value;
+         this.timesheetService.post(this.timesheetEntry);      */
     }
 
 }
