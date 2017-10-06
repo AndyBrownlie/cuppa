@@ -30,7 +30,7 @@ export class TimesheetEntryComponent implements OnInit {
         });
     }
 
-    public onSubmit() {
+    private onSubmit() {
        /*  this.timesheetEntry = this.timesheetEntryGroup.value;
          this.timesheetService.post(this.timesheetEntry);      */
     }
