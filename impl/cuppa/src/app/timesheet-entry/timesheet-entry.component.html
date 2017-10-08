@@ -1,5 +1,5 @@
-<form [formGroup]="timesheetEntryGroup" novalidate>
-  <md-select placeholder="Select a project" formControlName="contract">
+<form [formGroup]="timesheetEntryFormGroup" novalidate>
+  <md-select placeholder="Select a project" formControlName="project">
       <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
           {{ contractOption }}
         </md-option>

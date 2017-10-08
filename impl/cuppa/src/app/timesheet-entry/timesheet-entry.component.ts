@@ -12,8 +12,8 @@ import { ITimesheetEntryService }                               from './timeshee
 export class TimesheetEntryComponent implements OnInit {
 
     private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
-     timesheetEntryGroup: FormGroup;
-    private timesheetEntry: TimesheetEntry;
+    public timesheetEntryFormGroup: FormGroup;
+    public timesheetEntry: TimesheetEntry;
   
     constructor(private formBuilder: FormBuilder){//, private timesheetService: ITimesheetEntryService) { 
         this.createForm();
@@ -24,13 +24,13 @@ export class TimesheetEntryComponent implements OnInit {
     }
 
     private createForm() {
-        this.timesheetEntryGroup = this.formBuilder.group({
-        'contract':  ['', Validators.required ],
+        this.timesheetEntryFormGroup = this.formBuilder.group({
+        'project':  ['', Validators.required ],
         'workAmount':  ['', Validators.required ]
         });
     }
 
-    private onSubmit() {
+    public onSubmit() {
        /*  this.timesheetEntry = this.timesheetEntryGroup.value;
          this.timesheetService.post(this.timesheetEntry);      */
     }

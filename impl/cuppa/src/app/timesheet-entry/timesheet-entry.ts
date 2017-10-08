@@ -1,7 +1,7 @@
 export interface TimesheetEntry {
 
   date: Date;
-  contract: string;
+  project: string;
   workAmount: number;
   
 }
