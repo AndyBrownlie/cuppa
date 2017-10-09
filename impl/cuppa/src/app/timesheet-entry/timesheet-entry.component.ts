@@ -26,13 +26,16 @@ export class TimesheetEntryComponent implements OnInit {
     private createForm() {
         this.timesheetEntryFormGroup = this.formBuilder.group({
         'project':  ['', Validators.required ],
-        'workAmount':  ['', Validators.required ]
+        'workAmount':  ['', Validators.required ],
+        'date':[]
         });
     }
 
     public onSubmit() {
-       /*  this.timesheetEntry = this.timesheetEntryGroup.value;
-         this.timesheetService.post(this.timesheetEntry);      */
+        this.timesheetEntry = this.timesheetEntryFormGroup.value;
+       /*  this.timesheetEntry.project = this.timesheetEntryFormGroup.controls['project'].value;
+        this.timesheetEntry.workAmount = this.timesheetEntryFormGroup.controls['workAmount'].value; */
+         //this.timesheetService.post(this.timesheetEntry);      
     }
 
 }
