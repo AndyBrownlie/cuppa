@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule }                     from '@angular/f
 import { TimesheetEntryComponent }                              from './timesheet-entry.component';
 import { TimesheetEntryService }                                from './timesheet-entry.service';
 import { TimesheetEntryServiceStub }                            from './timesheet-entry.service.stub';
-import { TimesheetEntryService as MockTimesheetEntryService }   from '../mocks/timesheet-entry.service';
+import { TimesheetEntryMockService }                            from '../mocks/timesheet-entry.mock.service';
 
 
 describe('TimesheetEntryService', () => {

@@ -1,13 +1,13 @@
 import { inject, TestBed, getTestBed,
-    async, fakeAsync, ComponentFixture  }                  from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA }                                     from '@angular/core';
-import { FormBuilder }                                          from '@angular/forms';
-import { FormsModule, ReactiveFormsModule }                     from '@angular/forms';
-import * as Moment                                              from 'moment';
-import { TimesheetEntryComponent }                              from './timesheet-entry.component';
-import { TimesheetEntryService }                                from './timesheet-entry.service';
-import { TimesheetEntryServiceStub }                            from './timesheet-entry.service.stub';
-import { TimesheetEntryService as MockTimesheetEntryService }   from '../mocks/timesheet-entry.service';
+    async, fakeAsync, ComponentFixture  }               from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA }                             from '@angular/core';
+import { FormBuilder }                                  from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }             from '@angular/forms';
+import * as Moment                                      from 'moment';
+import { TimesheetEntryComponent }                      from './timesheet-entry.component';
+import { TimesheetEntryService }                        from './timesheet-entry.service';
+import { TimesheetEntryServiceStub }                    from './timesheet-entry.service.stub';
+import { TimesheetEntryMockService }                    from '../mocks/timesheet-entry.mock.service';
 
 
 describe('TimesheetEntryComponent', () => {
@@ -40,7 +40,7 @@ describe('TimesheetEntryComponent', () => {
     });
 
     it('form should be valid with populated values', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeTruthy();
     }));
@@ -50,33 +50,33 @@ describe('TimesheetEntryComponent', () => {
     }));
 
     it('form should be invalid on empty', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.emptyTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.emptyTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
     it('form should be invalid on partial fill', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.invalidTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.invalidTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
     it('form should be submitted with correct project value', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         expect(comp.timesheetEntry.project).toEqual(timesheet.project);
     }));
    
     it('form should be submitted with correct workAmount value', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         expect(comp.timesheetEntry.workAmount).toEqual(timesheet.workAmount);
     }));
 
     it('form should be submitted with todays date', fakeAsync(() => {
-        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         var date = new Date(); 
