@@ -2,7 +2,7 @@ import { Component, OnInit }                                    from '@angular/c
 import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/forms';
 
 import { TimesheetEntry }                                       from './timesheet-entry';                             
-import { ITimesheetEntryService }                               from './timesheet-entry.service';
+import { TimesheetEntryService }                                from './timesheet-entry.service';
 
 @Component({
   selector: 'timesheet-entry',
@@ -15,7 +15,7 @@ export class TimesheetEntryComponent implements OnInit {
     public timesheetEntryFormGroup: FormGroup;
     public timesheetEntry: TimesheetEntry;
   
-    constructor(private formBuilder: FormBuilder){//, private timesheetService: ITimesheetEntryService) { 
+    constructor(private formBuilder: FormBuilder, private timesheetService: TimesheetEntryService) { 
         this.createForm();
     }
 
@@ -34,7 +34,7 @@ export class TimesheetEntryComponent implements OnInit {
     public onSubmit() {
         this.timesheetEntry = this.timesheetEntryFormGroup.value;
         this.timesheetEntry.date = new Date();
-         //this.timesheetService.post(this.timesheetEntry);      
+        this.timesheetService.post(this.timesheetEntry);      
     }
 
 }
