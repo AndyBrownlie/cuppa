@@ -3,7 +3,7 @@ import { inject, TestBed, getTestBed,
 import { NO_ERRORS_SCHEMA }                                     from '@angular/core';
 import { FormBuilder }                                          from '@angular/forms';
 import { FormsModule, ReactiveFormsModule }                     from '@angular/forms';
-
+import * as Moment                                              from 'moment';
 import { TimesheetEntryComponent }                              from './timesheet-entry.component';
 import { TimesheetEntryService }                                from './timesheet-entry.service';
 import { TimesheetEntryServiceStub }                            from './timesheet-entry.service.stub';
@@ -55,12 +55,32 @@ describe('TimesheetEntryComponent', () => {
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
-    it('form should be submitted with populated values', fakeAsync(() => {
+    it('form should be invalid on partial fill', fakeAsync(() => {
+        var timesheet = MockTimesheetEntryService.invalidTimesheetEntry();
+        updateForm(timesheet.project, timesheet.workAmount);
+        expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
+    }));
+
+    it('form should be submitted with correct project value', fakeAsync(() => {
         var timesheet = MockTimesheetEntryService.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
-        expect(comp.timesheetEntry).toEqual(timesheet);
+        expect(comp.timesheetEntry.project).toEqual(timesheet.project);
     }));
    
+    it('form should be submitted with correct workAmount value', fakeAsync(() => {
+        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        updateForm(timesheet.project, timesheet.workAmount);
+        comp.onSubmit();
+        expect(comp.timesheetEntry.workAmount).toEqual(timesheet.workAmount);
+    }));
+
+    it('form should be submitted with todays date', fakeAsync(() => {
+        var timesheet = MockTimesheetEntryService.validTimesheetEntry();
+        updateForm(timesheet.project, timesheet.workAmount);
+        comp.onSubmit();
+        var date = new Date(); 
+        expect(comp.timesheetEntry.date.toDateString()).toEqual(date.toDateString());
+    }));
   
 });

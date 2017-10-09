@@ -1,7 +1,8 @@
 import { Injectable }                         from '@angular/core';
-import { EmptyTimesheetEntry }                from './empty-timesheet-entry';
 
-import { ValidTimesheetEntry }                  from './timesheet.mock.model';   
+import { ValidTimesheetEntry, 
+        InvalidTimesheetEntry, 
+        EmptyTimesheetEntry }                  from './timesheet.mock.model';   
 import { TimesheetEntry }                       from '../timesheet-entry/timesheet-entry';             
 
 @Injectable()
@@ -11,8 +12,12 @@ export class TimesheetEntryService {
     return ValidTimesheetEntry;
   }
 
-  public static emptyTimesheetEntry(): EmptyTimesheetEntry {
-    return new EmptyTimesheetEntry();
+  public static emptyTimesheetEntry(): TimesheetEntry {
+    return EmptyTimesheetEntry;
+  }
+
+  public static invalidTimesheetEntry(): TimesheetEntry {
+    return InvalidTimesheetEntry;
   }
 
 }

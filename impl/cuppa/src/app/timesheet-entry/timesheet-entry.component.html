@@ -1,20 +1,20 @@
 <form [formGroup]="timesheetEntryFormGroup" novalidate>
-  <md-select placeholder="Select a project" formControlName="project">
-      <md-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
+  <mat-select placeholder="Select a project" formControlName="project">
+      <mat-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
           {{ contractOption }}
-        </md-option>
-  </md-select>
-  <md-form-field>
-    <input mdInput type="number" 
+        </mat-option>
+  </mat-select>
+  <mat-form-field>
+    <input matInput type="number" 
             placeholder="Enter work amount" 
             step="25" 
             min="0" 
             max="100"
             formControlName="workAmount">
-            <span mdSuffix>%</span>
-    <md-hint align="start">As a % of the day</md-hint>
-  </md-form-field>
-  <button md-button color="primary" disabled="{{timesheetEntryGroup.status!='VALID'}}">Submit</button>
+            <span matSuffix>%</span>
+    <mat-hint align="start">As a % of the day</mat-hint>
+  </mat-form-field>
+  <button mat-button color="primary" disabled="{{timesheetEntryGroup.status!='VALID'}}">Submit</button>
 </form>
 <br/>
 <br/>

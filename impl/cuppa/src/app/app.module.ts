@@ -5,21 +5,19 @@ import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {CommonModule} from '@angular/common';
-import {MdCardModule} from '@angular/material';
-import {MdMenuModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
-import {MdButtonModule} from '@angular/material';
-import {MdListModule} from '@angular/material';
-import {MdIconModule} from '@angular/material';
-import {MdSidenavModule} from '@angular/material';
-import {MdSelectModule} from '@angular/material';
-import {MdToolbarModule} from '@angular/material';
-import {MdTooltipModule} from '@angular/material';
-import {MdDialogModule} from '@angular/material';
-import {MdAutocompleteModule} from '@angular/material';
-import {MdSlideToggleModule} from '@angular/material';
-import {MdDatepickerModule} from '@angular/material';
-import {MdNativeDateModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material';
+import {MatListModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+import {MatSidenavModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material';
+import {MatTooltipModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material';
+import {MatDatepickerModule} from '@angular/material';
 import {CovalentMediaModule} from '@covalent/core';
 import { CovalentLayoutModule, CovalentStepsModule /*, any other modules */ } from '@covalent/core';
 
@@ -40,21 +38,19 @@ import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.compo
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MdCardModule,
-    MdMenuModule,
-    MdInputModule,
-    MdButtonModule,
-    MdListModule,
-    MdIconModule,
-    MdSidenavModule,
-    MdSelectModule,
-    MdToolbarModule,
-    MdTooltipModule,
-    MdDialogModule,
-    MdDatepickerModule,
-    MdNativeDateModule,
-    MdAutocompleteModule,
-    MdSlideToggleModule,
+    MatCardModule,
+    MatMenuModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatSlideToggleModule,
     CovalentMediaModule,
     CovalentLayoutModule,
     CovalentStepsModule,

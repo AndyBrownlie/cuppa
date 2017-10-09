@@ -33,8 +33,7 @@ export class TimesheetEntryComponent implements OnInit {
 
     public onSubmit() {
         this.timesheetEntry = this.timesheetEntryFormGroup.value;
-       /*  this.timesheetEntry.project = this.timesheetEntryFormGroup.controls['project'].value;
-        this.timesheetEntry.workAmount = this.timesheetEntryFormGroup.controls['workAmount'].value; */
+        this.timesheetEntry.date = new Date();
          //this.timesheetService.post(this.timesheetEntry);      
     }
 

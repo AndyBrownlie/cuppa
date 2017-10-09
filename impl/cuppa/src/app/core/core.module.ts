@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdIconModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -9,7 +9,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   imports: [
     CommonModule,
     CoreRoutingModule,
-    MdIconModule
+    MatIconModule
   ],
   exports: [
     ToolbarComponent
