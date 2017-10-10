@@ -11,7 +11,7 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts","https://apis.google.com/js/platform.js"
   ],
   "include": [
     "**/*.spec.ts",

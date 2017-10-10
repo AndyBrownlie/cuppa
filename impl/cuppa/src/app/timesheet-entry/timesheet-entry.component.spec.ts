@@ -15,7 +15,7 @@ describe('TimesheetEntryComponent', () => {
     let comp: TimesheetEntryComponent;
     let fixture: ComponentFixture<TimesheetEntryComponent>;
 
-    beforeEach(async() => {
+    beforeEach(done => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, FormsModule],
             providers: [FormBuilder],
@@ -30,7 +30,8 @@ describe('TimesheetEntryComponent', () => {
         .then(() => {
             fixture = TestBed.createComponent(TimesheetEntryComponent);
             comp = fixture.componentInstance;
-        });
+            done();
+        }); 
     });
 
     function updateForm(contract:string, workAmount:number) {
@@ -40,8 +41,10 @@ describe('TimesheetEntryComponent', () => {
     }
 
     it('should create component', () => {
+        fixture = TestBed.createComponent(TimesheetEntryComponent);
+        comp = fixture.componentInstance;
         expect(comp).toBeTruthy();
-    });
+    }); 
 
     it('form should be valid with populated values', fakeAsync(() => {
         var timesheet = TimesheetEntryMockService.validTimesheetEntry();
