@@ -30,24 +30,12 @@ export class AppComponent implements AfterViewInit {
         this.loggedInSubscription = this.authService.loggedIn$
                                     .subscribe(loggedIn => this.loggedIn = loggedIn)
         
-        
-        /* // Converts the Google login button stub to an actual button.
-        gapi.signin2.render(this.googleLoginButtonId, {
-            "onSuccess": this.onGoogleLoginSuccess,
-            "scope": "profile email",
-            "theme": "dark",
-            "client_id": this.clientId
-        }); */
     }
-    
-    // Triggered after a user successfully logs in using the Google external
-    // login provider.
-   /*  onGoogleLoginSuccess = (loggedInUser) => {
-        this._zone.run(() => {
-            this.userAuthToken = loggedInUser.getAuthResponse().id_token;
-            this.userDisplayName = loggedInUser.getBasicProfile().getName();
-            this.loggedIn = true;
-        });
-    } */
+
+    ngOnDestroy() {
+        //Called once, before the instance is destroyed.
+        //Add 'implements OnDestroy' to the class.
+        this.loggedInSubscription.unsubscribe();
+    }
     
 }
