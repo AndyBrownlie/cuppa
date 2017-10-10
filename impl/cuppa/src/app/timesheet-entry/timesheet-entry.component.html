@@ -1,9 +1,9 @@
 <form [formGroup]="timesheetEntryFormGroup" novalidate>
-  <mat-select placeholder="Select a project" formControlName="project">
-      <mat-option *ngFor="let contractOption of contractOptions" [value]="contractOption">
-          {{ contractOption }}
-        </mat-option>
-  </mat-select>
+  <md-select placeholder="Select a project" formControlName="project">
+      <md-option *ngFor="let projectOption of projectOptions" [value]="projectOption">
+          {{ projectOption }}
+        </md-option>
+  </md-select>
   <mat-form-field>
     <input matInput type="number" 
             placeholder="Enter work amount" 
@@ -14,9 +14,9 @@
             <span matSuffix>%</span>
     <mat-hint align="start">As a % of the day</mat-hint>
   </mat-form-field>
-  <button mat-button color="primary" disabled="{{timesheetEntryGroup.status!='VALID'}}">Submit</button>
+  <button mat-button color="primary" disabled="{{timesheetEntryFormGroup.status!='VALID'}}">Submit</button>
 </form>
 <br/>
 <br/>
-<p>Form value: {{ timesheetEntryGroup.value | json }}</p>
-<p>Form status: {{ timesheetEntryGroup.status | json }}</p>
+<p>Form value: {{ timesheetEntryFormGroup.value | json }}</p>
+<p>Form status: {{ timesheetEntryFormGroup.status | json }}</p>

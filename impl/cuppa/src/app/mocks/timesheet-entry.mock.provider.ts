@@ -6,7 +6,7 @@ import { ValidTimesheetEntry,
 import { TimesheetEntry }                       from '../timesheet-entry/timesheet-entry';             
 
 @Injectable()
-export class TimesheetEntryMockService {
+export class TimesheetEntryMockProvider {
 
   public static validTimesheetEntry(): TimesheetEntry {
     return ValidTimesheetEntry;

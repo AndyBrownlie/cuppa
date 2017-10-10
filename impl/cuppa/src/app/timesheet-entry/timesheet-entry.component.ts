@@ -11,7 +11,7 @@ import { TimesheetEntryService }                                from './timeshee
 })
 export class TimesheetEntryComponent implements OnInit {
 
-    private contractOptions = ['Neueda | DAERA','Neueda | LPS'];
+    private projectOptions = ['Neueda | DAERA','Neueda | LPS'];
     public timesheetEntryFormGroup: FormGroup;
     public timesheetEntry: TimesheetEntry;
   

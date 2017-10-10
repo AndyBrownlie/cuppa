@@ -7,7 +7,7 @@ import * as Moment                                          from 'moment';
 import { TimesheetEntryComponent }                          from './timesheet-entry.component';
 import { TimesheetEntryService, ITimesheetEntryService }    from './timesheet-entry.service';
 import { TimesheetEntryServiceStub }                        from './timesheet-entry.service.stub';
-import { TimesheetEntryMockService }                        from '../mocks/timesheet-entry.mock.service';
+import { TimesheetEntryMockProvider }                       from '../mocks/timesheet-entry.mock.provider';
 
 
 describe('TimesheetEntryComponent', () => {
@@ -47,7 +47,7 @@ describe('TimesheetEntryComponent', () => {
     }); 
 
     it('form should be valid with populated values', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeTruthy();
     }));
@@ -57,33 +57,33 @@ describe('TimesheetEntryComponent', () => {
     }));
 
     it('form should be invalid on empty', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.emptyTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.emptyTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
     it('form should be invalid on partial fill', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.invalidTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.invalidTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
     it('form should be submitted with correct project value', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         expect(comp.timesheetEntry.project).toEqual(timesheet.project);
     }));
    
     it('form should be submitted with correct workAmount value', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         expect(comp.timesheetEntry.workAmount).toEqual(timesheet.workAmount);
     }));
 
     it('form should be submitted with todays date', fakeAsync(() => {
-        var timesheet = TimesheetEntryMockService.validTimesheetEntry();
+        var timesheet = TimesheetEntryMockProvider.validTimesheetEntry();
         updateForm(timesheet.project, timesheet.workAmount);
         comp.onSubmit();
         var date = new Date(); 

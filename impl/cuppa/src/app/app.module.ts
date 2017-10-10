@@ -1,4 +1,5 @@
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import { TimesheetEntryService } from './timesheet-entry/timesheet-entry.service';
+import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
@@ -54,10 +55,10 @@ import { TimesheetEntryComponent } from './timesheet-entry/timesheet-entry.compo
     CovalentMediaModule,
     CovalentLayoutModule,
     CovalentStepsModule,
-    CoreModule,
+    CoreModule.forRoot(),
     SharedModule
   ],
-  providers: [],
+  providers: [TimesheetEntryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

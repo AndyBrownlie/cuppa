@@ -3,6 +3,8 @@ import { inject, TestBed, getTestBed,
 import { NO_ERRORS_SCHEMA }                 from '@angular/core';
 
 import { AppComponent }                     from './app.component';
+import { AuthorisationService }             from './core/authorisation.service';
+import { AuthorisationServiceStub }         from './core/authorisation.service.stub';
 
 let fixture: ComponentFixture<AppComponent>;
 let app: AppComponent;
@@ -12,6 +14,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
+      providers: [{provide: AuthorisationService, useClass: AuthorisationServiceStub }],
       schemas:      [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
@@ -28,11 +31,6 @@ describe('AppComponent', () => {
 
   it(`should have as title 'cuppa'`, async(() => {
     expect(app.title).toEqual('cuppa');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    fixture.detectChanges();
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
   }));
 
 });

@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { AuthorisationService } from './authorisation.service';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material';
 
@@ -11,9 +12,16 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     CoreRoutingModule,
     MatIconModule
   ],
-  exports: [
-    ToolbarComponent
-  ],
-  declarations: [ToolbarComponent]
+  exports: [ToolbarComponent],
+  providers: [AuthorisationService],
+  declarations: [ToolbarComponent],
+  
 })
-export class CoreModule { }
+export class CoreModule { 
+    static forRoot(): ModuleWithProviders {
+        return {
+          ngModule: CoreModule,
+          providers: [AuthorisationService]
+        };
+      }
+}
