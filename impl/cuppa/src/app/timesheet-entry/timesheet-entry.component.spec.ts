@@ -8,7 +8,9 @@ import { TimesheetEntryComponent }                          from './timesheet-en
 import { TimesheetEntryService, ITimesheetEntryService }    from './timesheet-entry.service';
 import { TimesheetEntryServiceStub }                        from './timesheet-entry.service.stub';
 import { TimesheetEntryMockProvider }                       from '../mocks/timesheet-entry.mock.provider';
-
+import { ProjectService, IProjectService }                  from '../shared/project.service';
+import { ProjectServiceStub }                               from '../shared/project.service.stub';
+import { ProjectMockProvider }                              from '../mocks/project.mock.provider';
 
 describe('TimesheetEntryComponent', () => {
 
@@ -24,7 +26,10 @@ describe('TimesheetEntryComponent', () => {
         })
         .overrideComponent(TimesheetEntryComponent, {
         set: {
-          providers: [{provide: TimesheetEntryService, useClass: TimesheetEntryServiceStub }]
+          providers: [
+              {provide: TimesheetEntryService, useClass: TimesheetEntryServiceStub },
+              {provide: ProjectService, useClass: ProjectServiceStub }
+            ]
         }})
         .compileComponents()
         .then(() => {
@@ -54,6 +59,10 @@ describe('TimesheetEntryComponent', () => {
 
     it('form should be invalid on creation', fakeAsync(() => {
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
+    }));
+
+    it('form should load existing projects on creation', fakeAsync(() => {
+        expect(comp.projectOptions.length).toEqual(ProjectMockProvider.ValidProjects.length);
     }));
 
     it('form should be invalid on empty', fakeAsync(() => {

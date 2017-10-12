@@ -1,9 +1,7 @@
-import { Component, OnInit, AfterViewInit, NgZone } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { Subscription } from 'rxjs/Subscription';
-import { AuthorisationService } from './core/authorisation.service';
-
-//declare const gapi: any;
+import { Component, OnInit, AfterViewInit, NgZone }     from '@angular/core';
+import { DomSanitizer }                                 from '@angular/platform-browser';
+import { Subscription }                                 from 'rxjs/Subscription';
+import { AuthService }                                  from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +11,7 @@ import { AuthorisationService } from './core/authorisation.service';
 
 export class AppComponent implements AfterViewInit {
 
-    constructor(private _zone: NgZone, private authService: AuthorisationService) { 
+    constructor(private _zone: NgZone, private authService: AuthService) { 
         console.log(this);
     }
 

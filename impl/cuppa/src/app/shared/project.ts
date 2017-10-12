@@ -1,5 +1,8 @@
-export class Project {
+import { Contract }     from './contract';
 
-    public name: string;
+export interface Project {
+
+    name: string;
+    contract: Contract;
     
 }

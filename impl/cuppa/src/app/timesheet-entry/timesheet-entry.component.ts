@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/f
 
 import { TimesheetEntry }                                       from './timesheet-entry';                             
 import { TimesheetEntryService }                                from './timesheet-entry.service';
+import { ProjectService }                                       from '../shared/project.service';
 
 @Component({
   selector: 'timesheet-entry',
@@ -11,16 +12,22 @@ import { TimesheetEntryService }                                from './timeshee
 })
 export class TimesheetEntryComponent implements OnInit {
 
-    private projectOptions = ['Neueda | DAERA','Neueda | LPS'];
+    public projectOptions: string[] = [];
     public timesheetEntryFormGroup: FormGroup;
     public timesheetEntry: TimesheetEntry;
   
-    constructor(private formBuilder: FormBuilder, private timesheetService: TimesheetEntryService) { 
+    constructor(private formBuilder: FormBuilder, 
+                private timesheetService: TimesheetEntryService,
+                private projectService: ProjectService) { 
         this.createForm();
     }
 
     ngOnInit() {
-        
+        var projects = this.projectService.getProjects();
+        this.projectOptions.length = projects.length;
+        projects.forEach(project => {
+            this.projectOptions.push(project.name);
+        });
     }
 
     private createForm() {

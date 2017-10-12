@@ -4,11 +4,8 @@ import { Project }            from './project';
 import { ProjectService }     from './project.service';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    
-  ]
+  imports: [CommonModule],
+  declarations: [ ],
+  providers: [ProjectService],
 })
 export class SharedModule { }

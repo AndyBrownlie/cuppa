@@ -1,10 +1,10 @@
 import { Component, OnInit, AfterViewInit, 
             NgZone, Injectable }            from '@angular/core';
 import { Observable }                       from 'rxjs/Observable';
-import { IAuthorisationService }            from './authorisation.service';
+import { IAuthService }                     from './auth.service';
 
 @Injectable()
-export class AuthorisationServiceStub implements IAuthorisationService {
+export class AuthServiceStub implements IAuthService {
 
   constructor() { }
 

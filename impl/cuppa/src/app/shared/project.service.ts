@@ -1,19 +1,17 @@
 import { Injectable }   from '@angular/core';
 import { Project }      from './project';
 
+export interface IProjectService {
+  getProjects(): Project[];
+}
+
 @Injectable()
-export class ProjectService {
+export class ProjectService implements IProjectService {
 
   constructor() { }
 
-  private getProjects(): Project[] {
+  public getProjects(): Project[] {
     var projects: Project[];
-    var project = new Project();
-    project.name = "Neueda | DAERA";
-    projects[0] = project;
-    project = new Project();
-    project.name = "Neueda | LPS";
-    projects[1] = project;
     return projects;
   }
 

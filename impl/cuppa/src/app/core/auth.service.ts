@@ -5,7 +5,7 @@ import { Observable }                       from 'rxjs/Observable';
 
 declare const gapi: any;
 
-export interface IAuthorisationService {
+export interface IAuthService {
     loggedIn$: Observable<boolean>;
     
     login(googleLoginButtonId, clientId);
@@ -13,7 +13,7 @@ export interface IAuthorisationService {
 
 
 @Injectable()
-export class AuthorisationService implements IAuthorisationService {
+export class AuthService implements IAuthService {
 
   constructor(private zone: NgZone) { }
     private userAuthToken: string = null;

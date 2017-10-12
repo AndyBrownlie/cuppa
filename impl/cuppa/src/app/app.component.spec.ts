@@ -3,8 +3,8 @@ import { inject, TestBed, getTestBed,
 import { NO_ERRORS_SCHEMA }                 from '@angular/core';
 
 import { AppComponent }                     from './app.component';
-import { AuthorisationService }             from './core/authorisation.service';
-import { AuthorisationServiceStub }         from './core/authorisation.service.stub';
+import { AuthService }                      from './core/auth.service';
+import { AuthServiceStub }                  from './core/auth.service.stub';
 
 let fixture: ComponentFixture<AppComponent>;
 let app: AppComponent;
@@ -14,7 +14,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      providers: [{provide: AuthorisationService, useClass: AuthorisationServiceStub }],
+      providers: [{provide: AuthService, useClass: AuthServiceStub }],
       schemas:      [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
