@@ -16,6 +16,7 @@ describe('TimesheetEntryComponent', () => {
 
     let comp: TimesheetEntryComponent;
     let fixture: ComponentFixture<TimesheetEntryComponent>;
+    
 
     beforeEach(done => {
         TestBed.configureTestingModule({
@@ -64,6 +65,14 @@ describe('TimesheetEntryComponent', () => {
     it('form should load existing projects on creation', fakeAsync(() => {
         expect(comp.projectOptions.length).toEqual(ProjectMockProvider.ValidProjects.length);
     }));
+
+    it('form loads no existing projects on creation', fakeAsync(() => {
+        var mockProjectService = new ProjectServiceStub();
+        const spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.NoProjects());
+        comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
+        expect(75).toEqual(ProjectMockProvider.ValidProjects.length);
+    }));
+
 
     it('form should be invalid on empty', fakeAsync(() => {
         var timesheet = TimesheetEntryMockProvider.emptyTimesheetEntry();

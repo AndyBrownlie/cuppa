@@ -24,6 +24,7 @@ export class TimesheetEntryComponent implements OnInit {
 
     ngOnInit() {
         var projects = this.projectService.getProjects();
+        console.log(projects);
         this.projectOptions.length = projects.length;
         projects.forEach(project => {
             this.projectOptions.push(project.name);
