@@ -12,7 +12,7 @@ import { AuthService }                                  from './core/auth.servic
 export class AppComponent implements AfterViewInit {
 
     constructor(private _zone: NgZone, private authService: AuthService) { 
-        console.log(this);
+
     }
 
     public title: string = 'cuppa';

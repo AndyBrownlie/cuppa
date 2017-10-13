@@ -6,8 +6,6 @@ import { ValidProject1, ValidProject2 }     from './project.mock.model';
 export class ProjectMockProvider {
 
     public static ValidProjects(): Project[] {
-        
-
         return [ValidProject1, ValidProject2];
     }
 
