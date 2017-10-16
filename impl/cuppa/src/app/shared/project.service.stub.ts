@@ -9,8 +9,13 @@ export class ProjectServiceStub implements IProjectService {
   constructor() { }
 
   public getProjects(): Project[] {
-    var projects = ProjectMockProvider.ValidSingleProject();
+    var projects = ProjectMockProvider.ValidProjects();
     return projects;
   }
   
+  public getProjectsForMonth(month:Date): Project[] {
+    var projects = ProjectMockProvider.ValidProjects();
+    return projects;
+  }
+
 }

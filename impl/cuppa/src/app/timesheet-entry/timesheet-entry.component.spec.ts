@@ -68,7 +68,7 @@ describe('TimesheetEntryComponent', () => {
 
     it('form loads no existing projects on creation', fakeAsync(() => {
         let mockProjectService = new ProjectServiceStub();
-        let spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.NoProjects());
+        let spy = spyOn(mockProjectService, "getProjectsForMonth").and.returnValues(ProjectMockProvider.NoProjects());
         comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
         comp.ngOnInit();
         expect(comp.projectOptions.length).toEqual(0);
@@ -76,19 +76,24 @@ describe('TimesheetEntryComponent', () => {
 
     it('form loads project when 1 project loaded on creation', fakeAsync(() => {
         let mockProjectService = new ProjectServiceStub();
-        let spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.ValidSingleProject());
+        let spy = spyOn(mockProjectService, "getProjectsForMonth").and.returnValues(ProjectMockProvider.ValidSingleProject());
         comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
         comp.ngOnInit();
         expect(comp.projectOptions.length).toEqual(1);
     }));
 
-    it('form selects existing project when 1 project loaded on creation', fakeAsync(() => {
+    it('form default selects existing project when 1 project loaded on creation', fakeAsync(() => {
         let mockProjectService = new ProjectServiceStub();
-        let spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.ValidSingleProject());
+        let spy = spyOn(mockProjectService, "getProjectsForMonth").and.returnValues(ProjectMockProvider.ValidSingleProject());
         comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
         comp.ngOnInit();
       
         expect(comp.timesheetEntryFormGroup.controls['project'].value).toEqual(ProjectMockProvider.ValidSingleProject()[0].name);
+    }));
+
+    it('form default selects 100 workAmount on creation', fakeAsync(() => {
+        comp.ngOnInit();
+        expect(comp.timesheetEntryFormGroup.controls['workAmount'].value).toEqual('100');
     }));
 
     it('form should be invalid on empty', fakeAsync(() => {

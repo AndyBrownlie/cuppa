@@ -15,6 +15,7 @@ export class TimesheetEntryComponent implements OnInit {
     public projectOptions: string[] = [];
     public timesheetEntryFormGroup: FormGroup;
     public timesheetEntry: TimesheetEntry;
+    private today: Date = new Date();
   
     constructor(private formBuilder: FormBuilder, 
                 private timesheetService: TimesheetEntryService,
@@ -23,14 +24,21 @@ export class TimesheetEntryComponent implements OnInit {
     }
 
     ngOnInit() {
-        var projects = this.projectService.getProjects();
+        var projects = this.projectService.getProjectsForMonth(this.today);
         projects.forEach(project => {
             this.projectOptions.push(project.name);
         });
+        
+            this.timesheetEntryFormGroup.setValue({
+                    project: '', 
+                    workAmount: '100', 
+                    date: null
+                });        
+        
         if(projects.length == 1) {
             this.timesheetEntryFormGroup.setValue({
                     project: projects[0].name, 
-                    workAmount: '', 
+                    workAmount: '100', 
                     date: null
                 });        
         }
