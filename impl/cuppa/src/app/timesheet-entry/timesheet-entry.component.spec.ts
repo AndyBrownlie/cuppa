@@ -39,11 +39,11 @@ describe('TimesheetEntryComponent', () => {
         }); 
     });
 
-    function updateForm(contract:string, workAmount:number) {
+     function updateForm(contract:string, workAmount:number) {
         comp.ngOnInit();
         comp.timesheetEntryFormGroup.controls['project'].setValue(contract);
         comp.timesheetEntryFormGroup.controls['workAmount'].setValue(workAmount);
-    }
+    } 
 
     it('should create component', () => {
         fixture = TestBed.createComponent(TimesheetEntryComponent);
@@ -61,7 +61,7 @@ describe('TimesheetEntryComponent', () => {
         expect(comp.timesheetEntryFormGroup.valid).toBeFalsy();
     }));
 
-    it('form should load existing projects on creation', fakeAsync(() => {
+    it('form loads multiple existing projects on creation', fakeAsync(() => {
         comp.ngOnInit();
         expect(comp.projectOptions.length).toEqual(ProjectMockProvider.ValidProjects().length);
     }));
@@ -74,6 +74,22 @@ describe('TimesheetEntryComponent', () => {
         expect(comp.projectOptions.length).toEqual(0);
     }));
 
+    it('form loads project when 1 project loaded on creation', fakeAsync(() => {
+        let mockProjectService = new ProjectServiceStub();
+        let spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.ValidSingleProject());
+        comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
+        comp.ngOnInit();
+        expect(comp.projectOptions.length).toEqual(1);
+    }));
+
+    it('form selects existing project when 1 project loaded on creation', fakeAsync(() => {
+        let mockProjectService = new ProjectServiceStub();
+        let spy = spyOn(mockProjectService, "getProjects").and.returnValues(ProjectMockProvider.ValidSingleProject());
+        comp = new TimesheetEntryComponent(new FormBuilder(), new TimesheetEntryServiceStub(), mockProjectService);
+        comp.ngOnInit();
+      
+        expect(comp.timesheetEntryFormGroup.controls['project'].value).toEqual(ProjectMockProvider.ValidSingleProject()[0].name);
+    }));
 
     it('form should be invalid on empty', fakeAsync(() => {
         var timesheet = TimesheetEntryMockProvider.emptyTimesheetEntry();

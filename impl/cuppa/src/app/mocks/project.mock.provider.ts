@@ -12,4 +12,8 @@ export class ProjectMockProvider {
     public static NoProjects(): Project[] {
         return [];
     }
+
+    public static ValidSingleProject(): Project[] {
+        return [ValidProject1];
+    }
 }

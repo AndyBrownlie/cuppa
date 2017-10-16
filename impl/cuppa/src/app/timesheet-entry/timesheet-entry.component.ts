@@ -27,6 +27,13 @@ export class TimesheetEntryComponent implements OnInit {
         projects.forEach(project => {
             this.projectOptions.push(project.name);
         });
+        if(projects.length == 1) {
+            this.timesheetEntryFormGroup.setValue({
+                    project: projects[0].name, 
+                    workAmount: '', 
+                    date: null
+                });        
+        }
     }
 
     private createForm() {
