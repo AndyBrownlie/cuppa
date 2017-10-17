@@ -2,7 +2,8 @@ import { Component, OnInit, Inject }                        from '@angular/core'
 import { FormControl, FormGroup, FormBuilder, Validators }  from '@angular/forms';
 
 import { TimesheetEntry }                                   from './timesheet-entry';                             
-import { TimesheetEntryService }                            from './timesheet-entry.service';
+import { ITimesheetEntryService }                           from './timesheet-entry.service.interface';
+import { TIMESHEET_ENTRY_SERVICE }                          from './timesheet-entry.constants';
 import { IProjectService }                                  from '../shared/project.service.interface';
 import { PROJECT_SERVICE }                                  from '../shared/project.constants';
 
@@ -20,8 +21,8 @@ export class TimesheetEntryComponent implements OnInit {
   
     /* IProjectService | IProjectService is a hack for interface DI until Angular5 */
     constructor(private formBuilder: FormBuilder, 
-                private timesheetService: TimesheetEntryService,
-                @Inject(PROJECT_SERVICE) private projectService: IProjectService | IProjectService) { 
+                @Inject(TIMESHEET_ENTRY_SERVICE) private timesheetService: ITimesheetEntryService,
+                @Inject(PROJECT_SERVICE) private projectService: IProjectService ) { 
         this.createForm();
     }
 

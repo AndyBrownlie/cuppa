@@ -6,7 +6,9 @@ import { FormsModule, ReactiveFormsModule }                 from '@angular/forms
 import * as Moment                                          from 'moment';
 
 import { TimesheetEntryComponent }                          from './timesheet-entry.component';
-import { TimesheetEntryService, ITimesheetEntryService }    from './timesheet-entry.service';
+import { TimesheetEntryService }                            from './timesheet-entry.service';
+import { ITimesheetEntryService }                           from './timesheet-entry.service.interface';
+import { TIMESHEET_ENTRY_SERVICE }                          from './timesheet-entry.constants';
 import { TimesheetEntryServiceStub }                        from './timesheet-entry.service.stub';
 import { TimesheetEntryMockProvider }                       from '../mocks/timesheet-entry.mock.provider';
 import { IProjectService }                                  from '../shared/project.service.interface';
@@ -29,7 +31,7 @@ describe('TimesheetEntryComponent', () => {
         .overrideComponent(TimesheetEntryComponent, {
         set: {
           providers: [
-              {provide: TimesheetEntryService, useClass: TimesheetEntryServiceStub },
+              {provide: TIMESHEET_ENTRY_SERVICE, useClass: TimesheetEntryServiceStub },
               {provide: PROJECT_SERVICE, useClass: ProjectServiceStub}
             ]
         }})

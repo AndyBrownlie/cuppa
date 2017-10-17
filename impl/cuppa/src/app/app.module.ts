@@ -1,3 +1,4 @@
+import { TIMESHEET_ENTRY_SERVICE } from './timesheet-entry/timesheet-entry.constants';
 import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -58,7 +59,7 @@ import { TimesheetEntryService } from './timesheet-entry/timesheet-entry.service
     CoreModule.forRoot(),
     SharedModule
   ],
-  providers: [TimesheetEntryService],
+  providers: [{provide: TIMESHEET_ENTRY_SERVICE, useClass: TimesheetEntryService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
