@@ -1,9 +1,9 @@
-import { Component, OnInit }                                    from '@angular/core';
+import { Component, OnInit, Inject }                            from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/forms';
 
 import { TimesheetEntry }                                       from './timesheet-entry';                             
 import { TimesheetEntryService }                                from './timesheet-entry.service';
-import { ProjectService }                                       from '../shared/project.service';
+import { ProjectService, IProjectService, PROJECT_SERVICE }     from '../shared/project.service';
 
 @Component({
   selector: 'timesheet-entry',
@@ -19,7 +19,7 @@ export class TimesheetEntryComponent implements OnInit {
   
     constructor(private formBuilder: FormBuilder, 
                 private timesheetService: TimesheetEntryService,
-                private projectService: ProjectService) { 
+                @Inject(PROJECT_SERVICE) private projectService: IProjectService) { 
         this.createForm();
     }
 
