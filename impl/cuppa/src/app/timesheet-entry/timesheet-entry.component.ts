@@ -19,7 +19,6 @@ export class TimesheetEntryComponent implements OnInit {
     public timesheetEntry: TimesheetEntry;
     private today: Date = new Date();
   
-    /* IProjectService | IProjectService is a hack for interface DI until Angular5 */
     constructor(private formBuilder: FormBuilder, 
                 @Inject(TIMESHEET_ENTRY_SERVICE) private timesheetService: ITimesheetEntryService,
                 @Inject(PROJECT_SERVICE) private projectService: IProjectService ) { 

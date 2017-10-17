@@ -3,9 +3,10 @@
 
 module.exports = function (config) {
   config.set({
+    crossOriginAttribute: false,
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
-    files: [],
+    files: ["https://apis.google.com/js/platform.js"],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
