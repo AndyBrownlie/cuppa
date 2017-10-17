@@ -4,11 +4,13 @@ import { NO_ERRORS_SCHEMA }                                 from '@angular/core'
 import { FormBuilder }                                      from '@angular/forms';
 import { FormsModule, ReactiveFormsModule }                 from '@angular/forms';
 import * as Moment                                          from 'moment';
+
 import { TimesheetEntryComponent }                          from './timesheet-entry.component';
 import { TimesheetEntryService, ITimesheetEntryService }    from './timesheet-entry.service';
 import { TimesheetEntryServiceStub }                        from './timesheet-entry.service.stub';
 import { TimesheetEntryMockProvider }                       from '../mocks/timesheet-entry.mock.provider';
-import { ProjectService, IProjectService, PROJECT_SERVICE } from '../shared/project.service';
+import { IProjectService }                                  from '../shared/project.service.interface';
+import { PROJECT_SERVICE }                                  from '../shared/project.constants';
 import { ProjectServiceStub }                               from '../shared/project.service.stub';
 import { ProjectMockProvider }                              from '../mocks/project.mock.provider';
 

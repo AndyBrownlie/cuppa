@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject }                            from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators }      from '@angular/forms';
+import { Component, OnInit, Inject }                        from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators }  from '@angular/forms';
 
-import { TimesheetEntry }                                       from './timesheet-entry';                             
-import { TimesheetEntryService }                                from './timesheet-entry.service';
-import { ProjectService, IProjectService, PROJECT_SERVICE }     from '../shared/project.service';
+import { TimesheetEntry }                                   from './timesheet-entry';                             
+import { TimesheetEntryService }                            from './timesheet-entry.service';
+import { IProjectService }                                  from '../shared/project.service.interface';
+import { PROJECT_SERVICE }                                  from '../shared/project.constants';
 
 @Component({
   selector: 'timesheet-entry',
@@ -17,9 +18,10 @@ export class TimesheetEntryComponent implements OnInit {
     public timesheetEntry: TimesheetEntry;
     private today: Date = new Date();
   
+    /* IProjectService | IProjectService is a hack for interface DI until Angular5 */
     constructor(private formBuilder: FormBuilder, 
                 private timesheetService: TimesheetEntryService,
-                @Inject(PROJECT_SERVICE) private projectService: IProjectService) { 
+                @Inject(PROJECT_SERVICE) private projectService: IProjectService | IProjectService) { 
         this.createForm();
     }
 

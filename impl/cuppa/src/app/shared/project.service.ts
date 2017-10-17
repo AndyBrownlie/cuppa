@@ -1,13 +1,8 @@
-import { Injectable, InjectionToken }   from '@angular/core';
-import { Project }      from './project';
-import { AuthService }  from '../core/auth.service'
+import { Injectable }       from '@angular/core';
 
-export interface IProjectService {
-  getProjects(): Project[];
-  getProjectsForMonth(month:Date): Project[];
-}
-
-export let PROJECT_SERVICE = new InjectionToken<IProjectService>('ProjectService');
+import { Project }          from './project';
+import { IProjectService }  from './project.service.interface'
+import { AuthService }      from '../core/auth.service'
 
 @Injectable()
 export class ProjectService implements IProjectService {
