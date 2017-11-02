@@ -6,9 +6,9 @@ describe('FolderRequestBody', () => {
   let requestBody: FileRequestBody;
 
     it("should convert to JSON string", () => {
-        requestBody = new FileRequestBody("testFile");
+        requestBody = new FileRequestBody("testFile"); 
         var jsonString = requestBody.toJSONString();
-        expect(jsonString).toEqual("{\"name\":\"testFile\",\"mimeType\":\"application/vnd.google-apps.file\",\"kind\":\"drive#file\"}");
+        expect(requestBody.toJSONString()).toEqual("{\"name\":\"testFile\",\"mimeType\":\"application/vnd.google-apps.file\",\"kind\":\"drive#file\"}");
     });
  
 });

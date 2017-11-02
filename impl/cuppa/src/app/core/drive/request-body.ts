@@ -1,8 +1,5 @@
 import { IRequestBody } from './request-body.interface';
 
-
-'application/vnd.google-apps.folder'
-
 export abstract class RequestBody implements IRequestBody {
 
     constructor(public name: string, public mimeType: string) {}

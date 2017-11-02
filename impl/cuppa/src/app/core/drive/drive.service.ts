@@ -1,8 +1,10 @@
-import { Injectable }         from '@angular/core';
+import { Injectable }           from '@angular/core';
 //import { GoogleApiService }   from 'ng-gapi';
 
-import { IDriveService }      from './drive.service.interface';
-import { AuthService }        from '../auth.service';
+import { IDriveService }        from './drive.service.interface';
+import { AuthService }          from '../auth.service';
+import { FolderRequestBody }    from './folder-request-body';
+import { FileRequestBody }      from './file-request-body';
 
 @Injectable()
 export class DriveService implements IDriveService {
@@ -25,7 +27,15 @@ export class DriveService implements IDriveService {
   }
 
 
-  public createFolder(folderName: string){}
-  public updateFolder(existingFolderName: string, newFolderName: string){}
-  public deleteFolder(folderName: string){}
+    public createFolder(folderName: string){
+        var folderRequestBody =  new FolderRequestBody(folderName).toJSONString();
+    }
+
+    public updateFolder(existingFolderName: string, newFolderName: string){
+        var folderRequestBody = new FolderRequestBody(newFolderName).toJSONString();
+    }
+
+    public deleteFolder(folderName: string){
+        var folderRequestBody = new FolderRequestBody(folderName).toJSONString();
+    }
 }
