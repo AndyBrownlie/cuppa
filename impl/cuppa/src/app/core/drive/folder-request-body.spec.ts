@@ -6,9 +6,9 @@ describe('FolderRequestBody', () => {
   let requestBody: FolderRequestBody;
 
     it("should convert to JSON string", () => {
-        //requestBody = new FolderRequestBody("testFolder");
-        var jsonString = FolderRequestBody.toJSONString("testFolder");
+        requestBody = new FolderRequestBody("testFolder");
+        var jsonString = requestBody.toJSONString();
         expect(jsonString).toEqual("{\"name\":\"testFolder\",\"mimeType\":\"application/vnd.google-apps.folder\",\"kind\":\"drive#file\"}");
-    });
+    }); 
  
 });

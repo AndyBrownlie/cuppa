@@ -1,5 +1,5 @@
 import { Injectable }           from '@angular/core';
-//import { GoogleApiService }   from 'ng-gapi';
+import { GoogleApiService }   from 'ng-gapi';
 
 import { IDriveService }        from './drive.service.interface';
 import { AuthService }          from '../auth.service';
@@ -9,13 +9,13 @@ import { FileRequestBody }      from './file-request-body';
 @Injectable()
 export class DriveService implements IDriveService {
 
-  constructor(//private gapiService: GoogleApiService, 
+  constructor(private gapiService: GoogleApiService, 
     private authService: AuthService) {}
 
     public insertFile(path:string, file:any){
-    //  this.gapiService.onLoad().subscribe(() => {
-          //gapi.client.request()
-      //});
+        this.gapiService.onLoad().subscribe(() => {
+         // gapi.client.request(gapi.client.RequestOption)
+      }); 
   }
 
   public updateFile(path:string, file:any){
