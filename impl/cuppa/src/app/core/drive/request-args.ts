@@ -13,4 +13,9 @@ export class RequestArgs implements IRequestArgs {
     params: string; //object
     headers: string; //object
     body: string;
+
+    public toArgs(): string[] {
+        
+        return JSON.stringify(this);
+    }
 }
