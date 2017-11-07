@@ -15,7 +15,7 @@ export class RequestArgs implements IRequestArgs {
     body: string;
 
     public toArgs(): string[] {
-        
-        return JSON.stringify(this);
+        let args: string[] = [this.path, this.method, this.params, this.headers, this.body];
+        return args;
     }
 }
