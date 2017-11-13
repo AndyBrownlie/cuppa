@@ -9,26 +9,25 @@ describe('PostRequestArgs', () => {
 
     it("should provide JSON string arg for path (folder)", () => {
         requestArgs = new PostRequestArgs(new FolderRequestBody("testFolder"));
-        var args = requestArgs.toArgs();
-        expect(args[0]).toEqual("/upload/drive/v3/files");
+        expect(requestArgs.path).toEqual("/upload/drive/v3/files");
     }); 
 
     it("should provide JSON string arg for method (folder)", () => {
         requestArgs = new PostRequestArgs(new FolderRequestBody("testFolder"));
         var args = requestArgs.toArgs();
-        expect(args[1]).toEqual("POST");
+        expect(requestArgs.method).toEqual("POST");
     }); 
 
     it("should provide JSON string arg for body (folder)", () => {
         requestArgs = new PostRequestArgs(new FolderRequestBody("testFolder"));
         var args = requestArgs.toArgs();
-        expect(args[4]).toEqual("{\"name\":\"testFolder\",\"mimeType\":\"application/vnd.google-apps.folder\",\"kind\":\"drive#file\"}");
+        expect(requestArgs.body).toEqual("{\"name\":\"testFolder\",\"mimeType\":\"application/vnd.google-apps.folder\",\"kind\":\"drive#file\"}");
     }); 
 
     it("should provide JSON string arg for body (file)", () => {
         requestArgs = new PostRequestArgs(new FileRequestBody("testFile"));
         var args = requestArgs.toArgs();
-        expect(args[4]).toEqual("{\"name\":\"testFile\",\"mimeType\":\"application/vnd.google-apps.file\",\"kind\":\"drive#file\"}");
+        expect(requestArgs.body).toEqual("{\"name\":\"testFile\",\"mimeType\":\"application/vnd.google-apps.file\",\"kind\":\"drive#file\"}");
     }); 
 
 

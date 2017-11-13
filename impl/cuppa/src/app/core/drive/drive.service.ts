@@ -1,10 +1,11 @@
 import { Injectable }           from '@angular/core';
-import { GoogleApiService }   from 'ng-gapi';
+import { GoogleApiService }     from 'ng-gapi';
 
 import { IDriveService }        from './drive.service.interface';
 import { AuthService }          from '../auth.service';
 import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
+import { PostRequestArgs }      from './post-request-args';
 
 @Injectable()
 export class DriveService implements IDriveService {
@@ -28,7 +29,16 @@ export class DriveService implements IDriveService {
 
 
     public createFolder(folderName: string){
-        var folderRequestBody =  new FolderRequestBody(folderName).toJSONString();
+        var requestArgs = new PostRequestArgs(new FolderRequestBody(folderName));
+        this.gapiService.onLoad().subscribe(() => {
+            var request = gapi.client.request({"path": requestArgs.path, 
+                                                "method": requestArgs.method,
+                                                "params": requestArgs.params,
+                                                "headers": requestArgs.headers,
+                                                "body": requestArgs.body
+                                            });
+        }); 
+
     }
 
     public updateFolder(existingFolderName: string, newFolderName: string){
