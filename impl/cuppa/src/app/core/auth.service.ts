@@ -16,6 +16,7 @@ export interface IAuthService {
 export class AuthService implements IAuthService {
 
   constructor(private zone: NgZone) { }
+  
     private userAuthToken: string = null;
     private userDisplayName: string = "empty";
     private loggedInSource = new BehaviorSubject<boolean>(false);

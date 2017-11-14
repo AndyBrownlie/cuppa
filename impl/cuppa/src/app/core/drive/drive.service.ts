@@ -7,6 +7,8 @@ import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
 import { PostRequestArgs }      from './post-request-args';
 
+declare const gapi: any;
+
 @Injectable()
 export class DriveService implements IDriveService {
 
