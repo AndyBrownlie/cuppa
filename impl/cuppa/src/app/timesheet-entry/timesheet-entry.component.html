@@ -1,4 +1,4 @@
-<form [formGroup]="timesheetEntryFormGroup" novalidate>
+<form [formGroup]="timesheetEntryFormGroup" novalidate  (ngSubmit)="onSubmit()">
     <mat-form-field>
         <mat-select placeholder="Select a project" formControlName="project">
             <mat-option *ngFor="let projectOption of projectOptions" [value]="projectOption">
@@ -16,7 +16,7 @@
             <span matSuffix>%</span>
         <mat-hint align="start">As a % of the day</mat-hint>
   </mat-form-field>
-  <button mat-button color="primary" disabled="{{timesheetEntryFormGroup.status!='VALID'}}">Submit</button>
+  <button mat-button color="primary" disabled="{{timesheetEntryFormGroup.status!='VALID'}}" type="submit">Submit</button>
 </form>
 <br/>
 <br/>

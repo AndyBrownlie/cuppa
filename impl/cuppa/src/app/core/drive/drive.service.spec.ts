@@ -12,17 +12,18 @@ let gapiClientConfig: NgGapiClientConfig = {
   };
 
 describe('DriveService', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [DriveService,  AuthService, GoogleApiService,
-        {
-           provide: NG_GAPI_CONFIG,
-           useValue: gapiClientConfig
-        }]
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        providers: [DriveService,  AuthService, GoogleApiService,
+          {
+            provide: NG_GAPI_CONFIG,
+            useValue: gapiClientConfig
+          }]
+      });
     });
-  });
 
-it('should be created', inject([DriveService], (service: DriveService) => {
-    expect(service).toBeTruthy();
-})); 
+    it('should be created', inject([DriveService], (service: DriveService) => {
+        expect(service).toBeTruthy();
+    })); 
+
 });

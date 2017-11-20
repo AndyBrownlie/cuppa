@@ -57,7 +57,7 @@ export class TimesheetEntryComponent implements OnInit {
     public onSubmit() {
         this.timesheetEntry = this.timesheetEntryFormGroup.value;
         this.timesheetEntry.date = new Date();
-        this.timesheetService.post(this.timesheetEntry);      
+        this.timesheetService.post(this.timesheetEntry);
     }
 
 }

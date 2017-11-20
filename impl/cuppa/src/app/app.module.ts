@@ -59,7 +59,7 @@ import { TimesheetEntryService } from './timesheet-entry/timesheet-entry.service
     CoreModule.forRoot(),
     SharedModule
   ],
-  providers: [{provide: TIMESHEET_ENTRY_SERVICE, useClass: TimesheetEntryService}],
+  providers: [{provide: TIMESHEET_ENTRY_SERVICE, useClass: TimesheetEntryService}, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

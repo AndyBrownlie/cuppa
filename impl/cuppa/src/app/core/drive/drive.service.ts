@@ -13,7 +13,7 @@ declare const gapi: any;
 export class DriveService implements IDriveService {
 
   constructor(private gapiService: GoogleApiService, 
-    private authService: AuthService) {}
+                private authService: AuthService) {}
 
     public insertFile(path:string, file:any){
         this.gapiService.onLoad().subscribe(() => {
@@ -35,10 +35,13 @@ export class DriveService implements IDriveService {
         this.gapiService.onLoad().subscribe(() => {
             var request = gapi.client.request({"path": requestArgs.path, 
                                                 "method": requestArgs.method,
-                                                "params": requestArgs.params,
-                                                "headers": requestArgs.headers,
+                                                "params": "",//requestArgs.params,
+                                                "headers": "",//requestArgs.headers,
                                                 "body": requestArgs.body
                                             });
+           /*  request.then((response)=> {
+                console.log(response);        
+            });  */                               
         }); 
 
     }
