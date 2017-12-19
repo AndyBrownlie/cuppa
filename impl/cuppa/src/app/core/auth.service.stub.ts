@@ -8,12 +8,12 @@ export class AuthServiceStub implements IAuthService {
 
   constructor() { }
 
-    public loggedIn$: Observable<boolean>;
-    public loggedIn: boolean;
-    public login(googleLoginButtonId, clientId) {
-  
-  }
-
+      public loggedIn$: Observable<boolean>;
+      public loggedIn: boolean;
+      public login(googleLoginButtonId, clientId) { }
+      public getToken(): string {
+        return "";
+      }
 
 
 }
