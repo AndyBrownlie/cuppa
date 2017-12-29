@@ -6,15 +6,21 @@ import { AuthService }          from '../auth.service';
 import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
 import { PostRequestArgs }      from './post-request-args';
-import { RequestHeaders }        from './request-headers';
+import { RequestHeaders }       from './request-headers';
+import { IHttpService }         from '../http-service.interface';
 
-declare const gapi: any;
+//declare const gapi: any;
 
 @Injectable()
 export class DriveService implements IDriveService {
 
   constructor(private gapiService: GoogleApiService, 
-                private authService: AuthService) {}
+                private authService: AuthService, 
+                private httpService: IHttpService) {
+                    this.authHeader.append('Authorization', 'Bearer ' + authService.getToken())
+                }
+
+    private authHeader: Headers = new Headers();
 
     public insertFile(path:string, file:any){
         this.gapiService.onLoad().subscribe(() => {
@@ -35,7 +41,11 @@ export class DriveService implements IDriveService {
         var requestArgs = new PostRequestArgs(new FolderRequestBody(folderName), 
                                                 new RequestHeaders(this.authService.getToken()));
         this.gapiService.onLoad().subscribe(() => {
-            gapi.client.init();
+            
+            //gapi.client.init();
+
+            this.httpService.post(requestArgs.path, requestArgs.body, {headers: this.authHeader})
+
             var request = gapi.client.request({"path": requestArgs.path, 
                                                 "method": requestArgs.method,
                                                 "params": "",//requestArgs.params,
