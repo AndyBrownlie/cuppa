@@ -1,4 +1,4 @@
-import { Injectable }           from '@angular/core';
+import { Injectable,Inject }    from '@angular/core';
 import { GoogleApiService }     from 'ng-gapi';
 
 import { IDriveService }        from './drive.service.interface';
@@ -7,7 +7,8 @@ import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
 import { PostRequestArgs }      from './post-request-args';
 import { RequestHeaders }       from './request-headers';
-import { IHttpService }         from '../http-service.interface';
+import { HTTP_SERVICE }         from '../http/http.constants';
+import { IHttpService }         from '../http/http-service.interface';
 
 //declare const gapi: any;
 
@@ -16,7 +17,7 @@ export class DriveService implements IDriveService {
 
   constructor(private gapiService: GoogleApiService, 
                 private authService: AuthService, 
-                private httpService: IHttpService) {
+                @Inject(HTTP_SERVICE) private httpService: IHttpService) {
                     this.authHeader.append('Authorization', 'Bearer ' + authService.getToken())
                 }
 
@@ -44,7 +45,7 @@ export class DriveService implements IDriveService {
             
             //gapi.client.init();
 
-            this.httpService.post(requestArgs.path, requestArgs.body, {headers: this.authHeader})
+            //this.httpService.post(requestArgs.path, requestArgs.body, {headers: this.authHeader})
 
             var request = gapi.client.request({"path": requestArgs.path, 
                                                 "method": requestArgs.method,

@@ -1,8 +1,7 @@
-import {RequestOptionsArgs} from "@angular/http";
-import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
+import { RequestOptionsArgs }   from "@angular/http";
+import { Observable }           from "rxjs";
+import { Injectable }           from "@angular/core";
 
-@Injectable()
 export interface IHttpService {
 
     get(url: string, options?: RequestOptionsArgs): Observable<any>;

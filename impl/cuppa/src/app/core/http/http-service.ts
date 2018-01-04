@@ -1,10 +1,11 @@
-import {Http, RequestOptionsArgs, Response} from "@angular/http";
-import {HttpErrorHandler} from "./http-error-handler";
-import {Observable} from "rxjs";
-import {Injectable} from "@angular/core";
+import { Http, RequestOptionsArgs, Response }       from "@angular/http";
+import { Observable }                               from "rxjs";
+import { Injectable }                               from "@angular/core";
+import { HttpErrorHandler }                         from "./http-error-handler";
+import { IHttpService }                             from './http-service.interface';
 
 @Injectable()
-export class HttpService {
+export class HttpService implements IHttpService {
 
     constructor(private http: Http,
                 private errorHandler: HttpErrorHandler) {
