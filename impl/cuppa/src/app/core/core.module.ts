@@ -11,8 +11,9 @@ import { IDriveService }                        from './drive/drive.service.inte
 import { DRIVE_SERVICE }                        from './drive/drive.constants';
 import { DriveServiceStub }                     from './drive/drive.service.stub';
 import { AuthService }                          from './auth.service';
-import { HTTP_SERVICE }                         from './http/http.constants';
+import { AUTH_SERVICE }                          from './core.constants';
 import { HttpService }                          from './http/http-service';
+import { HTTP_SERVICE }                         from './http/http.constants';
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "659602254635-j2lfo490qpi9r94pd1tfjnjas9jfs8t6.apps.googleusercontent.com",
@@ -41,7 +42,7 @@ export class CoreModule {
         return {
           ngModule: CoreModule,
           providers: [
-            AuthService, 
+            {provide: AUTH_SERVICE, useClass: AuthService},
             {provide: DRIVE_SERVICE, useClass: DriveService},
             {provide: HTTP_SERVICE, useClass: HttpService}
           ]

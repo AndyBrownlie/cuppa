@@ -3,6 +3,8 @@ import { GoogleApiService }     from 'ng-gapi';
 
 import { IDriveService }        from './drive.service.interface';
 import { AuthService }          from '../auth.service';
+import { IAuthService }          from '../auth.service.interface';
+import { AUTH_SERVICE }         from '../core.constants';
 import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
 import { PostRequestArgs }      from './post-request-args';
@@ -16,7 +18,7 @@ import { IHttpService }         from '../http/http-service.interface';
 export class DriveService implements IDriveService {
 
   constructor(private gapiService: GoogleApiService, 
-                private authService: AuthService, 
+                @Inject(AUTH_SERVICE) private authService: IAuthService, 
                 @Inject(HTTP_SERVICE) private httpService: IHttpService) {
                     this.authHeader.append('Authorization', 'Bearer ' + authService.getToken())
                 }

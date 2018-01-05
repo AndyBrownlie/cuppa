@@ -2,16 +2,9 @@ import { Component, OnInit,
         AfterViewInit, NgZone, Injectable } from '@angular/core';
 import { BehaviorSubject }                  from 'rxjs/BehaviorSubject';
 import { Observable }                       from 'rxjs/Observable';
+import { IAuthService }                     from './auth.service.interface';
 
 declare const gapi: any;
-
-export interface IAuthService {
-    loggedIn$: Observable<boolean>;
-    
-    login(googleLoginButtonId, clientId);
-    getToken(): string;
-}
-
 
 @Injectable()
 export class AuthService implements IAuthService {
