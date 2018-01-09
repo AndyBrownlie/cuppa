@@ -10,6 +10,7 @@ import { AuthServiceStub }                                        from '../auth.
 import { AUTH_SERVICE }                                           from '../core.constants';
 import { HttpService }                                            from '../http/http-service';
 import { HTTP_SERVICE }                                           from '../http/http.constants';
+import { HttpServiceStub }                                        from '../http/http-service.stub';
 
 let gapiClientConfig: NgGapiClientConfig = {
     client_id: "659602254635-j2lfo490qpi9r94pd1tfjnjas9jfs8t6.apps.googleusercontent.com",
