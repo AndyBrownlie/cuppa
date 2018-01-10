@@ -1,6 +1,6 @@
-import { IRequestBody } from './request-body.interface';
+import { IDriveRequestBody } from './drive-request-body.interface';
 
-export abstract class RequestBody implements IRequestBody {
+export abstract class DriveRequestBody implements IDriveRequestBody {
 
     constructor(public name: string, public mimeType: string) {}
 

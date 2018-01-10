@@ -3,12 +3,12 @@ import { GoogleApiService }     from 'ng-gapi';
 
 import { IDriveService }        from './drive.service.interface';
 import { AuthService }          from '../auth.service';
-import { IAuthService }          from '../auth.service.interface';
+import { IAuthService }         from '../auth.service.interface';
 import { AUTH_SERVICE }         from '../core.constants';
 import { FolderRequestBody }    from './folder-request-body';
 import { FileRequestBody }      from './file-request-body';
 import { PostRequestArgs }      from './post-request-args';
-import { RequestHeaders }       from './request-headers';
+import { DriveRequestHeaders }  from './drive-request-headers';
 import { HTTP_SERVICE }         from '../http/http.constants';
 import { IHttpService }         from '../http/http-service.interface';
 
@@ -42,20 +42,20 @@ export class DriveService implements IDriveService {
 
     public createFolder(folderName: string){
         var requestArgs = new PostRequestArgs(new FolderRequestBody(folderName), 
-                                                new RequestHeaders(this.authService.getToken()));
+                                                new DriveRequestHeaders(this.authService.getToken()));
         this.gapiService.onLoad().subscribe(() => {
             
             //gapi.client.init();
 
-            //this.httpService.post(requestArgs.path, requestArgs.body, {headers: this.authHeader})
+            this.httpService.post(requestArgs.url, requestArgs.body, requestArgs);
 
-            var request = gapi.client.request({"path": requestArgs.path, 
+             /*var request = gapi.client.request({"path": requestArgs.path, 
                                                 "method": requestArgs.method,
                                                 "params": "",//requestArgs.params,
                                                 "headers": requestArgs.headers,
                                                 "body": requestArgs.body
                                             });
-            /*  request.then((response)=> {
+             request.then((response)=> {
                 console.log(response);        
             }); */                               
         }); 
