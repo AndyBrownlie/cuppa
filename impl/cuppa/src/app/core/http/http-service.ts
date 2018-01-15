@@ -1,8 +1,9 @@
 import { Http, RequestOptionsArgs, Response }       from "@angular/http";
-import { Observable }                               from "rxjs";
 import { Injectable }                               from "@angular/core";
 import { HttpErrorHandler }                         from "./http-error-handler";
 import { IHttpService }                             from './http-service.interface';
+import { Observable }           from "rxjs";
+import { ErrorObservable }      from "rxjs/observable/ErrorObservable";
 
 @Injectable()
 export class HttpService implements IHttpService {

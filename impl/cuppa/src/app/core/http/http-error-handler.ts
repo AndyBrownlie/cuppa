@@ -1,12 +1,12 @@
-import {Response} from "@angular/http";
-import {Observable} from "rxjs";
-import {ErrorObservable} from "rxjs/observable/ErrorObservable";
-//import {SecurityService} from "../security/SecurityService";
-import {Injectable} from "@angular/core";
-import {Router} from "@angular/router";
+import { Response }             from "@angular/http";
+import { Observable }           from "rxjs";
+import { ErrorObservable }      from "rxjs/observable/ErrorObservable";
+import { Injectable }           from "@angular/core";
+import { Router }               from "@angular/router";
+import { IHttpErrorHandler }    from './http-error-handler.interface';
 
 @Injectable()
-export class HttpErrorHandler {
+export class HttpErrorHandler implements IHttpErrorHandler {
 
     constructor(//private securityService: SecurityService,
                 private router: Router) {
@@ -22,7 +22,6 @@ export class HttpErrorHandler {
         let errMsg: string = `${response.status} - ${response.statusText}`;
         let serverResponse: any = response.statusText == "OK" ? response.json() : {};
 
-        //this.securityService.denyAndRedirectOnAuthError(serverResponse);
         this.redirectToErrorPage(response);
 
         console.error(errMsg);

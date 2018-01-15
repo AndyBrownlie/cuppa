@@ -43,7 +43,7 @@ export class DriveService implements IDriveService {
     public createFolder(folderName: string){
         var requestArgs = new PostRequestArgs(new FolderRequestBody(folderName), 
                                                 new DriveRequestHeaders(this.authService.getToken()));
-        this.gapiService.onLoad().subscribe(() => {
+       // this.gapiService.onLoad().subscribe(() => {
             
             //gapi.client.init();
 
@@ -58,7 +58,7 @@ export class DriveService implements IDriveService {
              request.then((response)=> {
                 console.log(response);        
             }); */                               
-        }); 
+       // }); 
 
     }
 
