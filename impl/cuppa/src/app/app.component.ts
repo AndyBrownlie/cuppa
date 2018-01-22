@@ -26,7 +26,9 @@ export class AppComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.authService.login(this.googleLoginButtonId, this.clientId);
         this.loggedInSubscription = this.authService.loggedIn$
-                                    .subscribe(loggedIn => this.loggedIn = loggedIn)
+                                    .subscribe(loggedIn => this.loggedIn = loggedIn);
+
+                                    
         
     }
 

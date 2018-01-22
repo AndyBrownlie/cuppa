@@ -30,6 +30,7 @@ export class AuthService implements IAuthService {
     // Triggered after a user successfully logs in using the Google external
     // login provider.
     private onGoogleLoginSuccess = (loggedInUser) => {
+        console.log("in here");
         this.zone.run(() => {
             this.userIdToken = loggedInUser.getAuthResponse().id_token;
             this.userDisplayName = loggedInUser.getBasicProfile().getName();

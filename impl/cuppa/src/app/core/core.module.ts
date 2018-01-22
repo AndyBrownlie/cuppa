@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders }        from '@angular/core';
 import { CommonModule }                         from '@angular/common';
 import { MatIconModule }                        from '@angular/material';
+import { HttpModule }                           from '@angular/http';
 import { GoogleApiModule, GoogleApiService }    from 'ng-gapi';
 import { NgGapiClientConfig, NG_GAPI_CONFIG }   from 'ng-gapi';
 
@@ -11,9 +12,11 @@ import { IDriveService }                        from './drive/drive.service.inte
 import { DRIVE_SERVICE }                        from './drive/drive.constants';
 import { DriveServiceStub }                     from './drive/drive.service.stub';
 import { AuthService }                          from './auth.service';
-import { AUTH_SERVICE }                          from './core.constants';
+import { AUTH_SERVICE }                         from './core.constants';
 import { HttpService }                          from './http/http-service';
 import { HTTP_SERVICE }                         from './http/http.constants';
+import { HttpErrorHandler }                     from './http/http-error-handler';
+
 
 let gapiClientConfig: NgGapiClientConfig = {
   client_id: "659602254635-j2lfo490qpi9r94pd1tfjnjas9jfs8t6.apps.googleusercontent.com",
@@ -26,6 +29,7 @@ let gapiClientConfig: NgGapiClientConfig = {
   imports: [
     CommonModule,
     CoreRoutingModule,
+    HttpModule,
     MatIconModule,
      GoogleApiModule.forRoot({
       provide: NG_GAPI_CONFIG,
@@ -33,7 +37,7 @@ let gapiClientConfig: NgGapiClientConfig = {
     }),
   ],
   exports: [ToolbarComponent],
-  providers: [AuthService],// GoogleApiService],
+  providers: [AuthService, HttpErrorHandler, HttpService],// GoogleApiService],
   declarations: [ToolbarComponent],
   
 })
