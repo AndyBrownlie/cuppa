@@ -17,8 +17,7 @@ import { IHttpService }         from '../http/http-service.interface';
 @Injectable()
 export class DriveService implements IDriveService {
 
-  constructor(private gapiService: GoogleApiService, 
-                @Inject(AUTH_SERVICE) private authService: IAuthService, 
+  constructor( @Inject(AUTH_SERVICE) private authService: IAuthService, 
                 @Inject(HTTP_SERVICE) private httpService: IHttpService) {
                     this.authHeader.append('Authorization', 'Bearer ' + authService.getToken())
                 }
@@ -26,9 +25,7 @@ export class DriveService implements IDriveService {
     private authHeader: Headers = new Headers();
 
     public insertFile(path:string, file:any){
-        this.gapiService.onLoad().subscribe(() => {
-         // gapi.client.request(gapi.client.RequestOption)
-      }); 
+
   }
 
   public updateFile(path:string, file:any){

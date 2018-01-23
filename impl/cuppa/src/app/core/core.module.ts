@@ -31,13 +31,9 @@ let gapiClientConfig: NgGapiClientConfig = {
     CoreRoutingModule,
     HttpModule,
     MatIconModule,
-     GoogleApiModule.forRoot({
-      provide: NG_GAPI_CONFIG,
-      useValue: gapiClientConfig
-    }),
   ],
   exports: [ToolbarComponent],
-  providers: [AuthService, HttpErrorHandler, HttpService],// GoogleApiService],
+  providers: [AuthService, HttpErrorHandler, HttpService],
   declarations: [ToolbarComponent],
   
 })
@@ -47,9 +43,9 @@ export class CoreModule {
           ngModule: CoreModule,
           providers: [
             {provide: AUTH_SERVICE, useClass: AuthService},
-            {provide: DRIVE_SERVICE, useClass: DriveService},
-            {provide: HTTP_SERVICE, useClass: HttpService}
-          ]
+            {provide: HTTP_SERVICE, useClass: HttpService},
+            {provide: DRIVE_SERVICE, useClass: DriveService}
+        ]
         };
       }
 }

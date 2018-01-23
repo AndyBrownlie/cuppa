@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material';
+//import {RouterModule} from '@angular/router';
 import {CovalentMediaModule} from '@covalent/core';
 import { CovalentLayoutModule, CovalentStepsModule /*, any other modules */ } from '@covalent/core';
 
@@ -40,6 +41,7 @@ import { TimesheetEntryService } from './timesheet-entry/timesheet-entry.service
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+   // RouterModule,
     MatCardModule,
     MatMenuModule,
     MatInputModule,
